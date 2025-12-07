@@ -12,7 +12,9 @@ import { Autoplay } from 'swiper/modules';
 
 const brandLogos = [amazon, amazon_vector, casio, moonstar, randstad, star, star_people];
 const Brands = () => {
-    return (
+  return (
+    <div className='my-12'>
+      <h2 className='text-2xl md:text-4xl font-bold text-center mb-12'>We've helped thousands of sales teams</h2>
       <Swiper
         slidesPerView={3}
         centeredSlides={true}
@@ -22,18 +24,17 @@ const Brands = () => {
         modules={[Autoplay]}
         autoplay={{
           delay: 2500,
-            disableOnInteraction: false,
+          disableOnInteraction: false,
         }}
       >
         {
-            brandLogos.map((logo, index) => <SwiperSlide key={index}>
-                <img src={logo} alt="" />
-            </SwiperSlide>)
+          brandLogos.map((logo, index) => <SwiperSlide key={index}>
+            <img src={logo} alt="" />
+          </SwiperSlide>)
         }
-        
-
       </Swiper>
-    );
+    </div>
+  );
 };
 
 export default Brands;

@@ -5,7 +5,7 @@ import ServiceCard from "./ServiceCard";
 
 const Services = () => {
   return (
-    <section className="py-20 bg-[#032E22] text-white">
+    <section className="py-20 bg-[#032E22] text-white rounded-2xl">
       <div className="max-w-6xl mx-auto px-4">
         
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">

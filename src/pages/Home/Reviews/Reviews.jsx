@@ -7,8 +7,8 @@ const Reviews = ({ReviewsPromise}) => {
     const reviews = use(ReviewsPromise);
     console.log(reviews);
     return (
-        <div className='my-24'>
-            <div className='text-center mb-24'>
+        <div className='my-12'>
+            <div className='text-center mb-24 w-[832] h-[112]'>
                 <h3 className='text-text-3xl text-center font-bold my-8'>What our customers are sayings</h3>
                 <p>A posture corrector works by providing support and gentle alignment to your shoulders, back, and spine, encouraging you to maintain proper posture throughout the day. </p>
             </div>

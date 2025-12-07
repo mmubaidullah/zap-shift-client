@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useLoaderData } from "react-router";
@@ -6,12 +6,18 @@ import { useLoaderData } from "react-router";
 const Coverage = () => {
   const position = [23.685, 90.3563]; // Center of Bangladesh
   const serviceCenters = useLoaderData();
-  console.log(serviceCenters);
+  const mapRaf = useRef(null);
+   // console.log(serviceCenters);
 
   const hendleSearch = (e) => {
     e.preventDefault();
     const location = e.target.location.value;
     const district = serviceCenters.find(c=> c.district.toLowerCase(). includes(location.toLowerCase()));
+    if(district){
+      const coord = [district.latitude, district.longitude];
+      // console.log(district, coord)
+      mapRaf.current.flyTo(coord, 12);
+    }
     
   };
 
@@ -20,7 +26,7 @@ const Coverage = () => {
       <h2 className="text-5xl">We are available in 64 districts</h2>
       <div>
         {/* search */}
-        <form>
+        <form onSubmit={hendleSearch}>
           <label className="input">
             <svg
               className="h-[1em] opacity-50"
@@ -49,6 +55,7 @@ const Coverage = () => {
           zoom={8}
           scrollWheelZoom={false}
           className="h-[800px]"
+          ref={mapRaf}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
