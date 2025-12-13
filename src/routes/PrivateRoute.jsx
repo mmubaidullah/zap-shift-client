@@ -1,22 +1,23 @@
-import React from 'react'
-import useAuth from '../hooks/useAuth'
-import { Navigate, useLocation } from 'react-router';
+import React from "react";
+import useAuth from "../hooks/useAuth";
+import { Navigate, useLocation } from "react-router";
 
-const PrivateRoute = ({children}) => {
-    const {user, loading}=useAuth();
-    const location = useLocation();
+const PrivateRoute = ({ children }) => {
+  const { user, loading } = useAuth();
+  const location = useLocation();
 
-    if (loading){
-        return <div>
-            <span className="loading loading-ring loading-xl"></span>
+  if (loading) {
+    return (
+      <div>
+        <span className="loading loading-ring loading-xl"></span>
+      </div>
+    );
+  }
 
-        </div>
-    }
-
-    if(!user){
-        return <Navigate state={location.pathname} to="/login"></Navigate>
-    }
+  if (!user) {
+    return <Navigate state={location.pathname} to="/login"></Navigate>;
+  }
   return children;
-}
+};
 
-export default PrivateRoute
+export default PrivateRoute;
