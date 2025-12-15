@@ -1,5 +1,6 @@
 import React from "react";
 import { FaMotorcycle, FaRegCreditCard } from "react-icons/fa";
+import { FiUsers } from "react-icons/fi";
 import { GrDeliver } from "react-icons/gr";
 import { Link, NavLink, Outlet } from "react-router";
 
@@ -102,6 +103,16 @@ const DashboardLayout = () => {
               >
                 <FaMotorcycle />
                 <span className="is-drawer-close:hidden">Approve Riders</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Users Management"
+                to="/dashboard/users-management"
+              >
+                <FiUsers />
+                <span className="is-drawer-close:hidden">Users Management</span>
               </NavLink>
             </li>
             {/* List item */}

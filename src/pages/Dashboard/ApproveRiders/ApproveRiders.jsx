@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaUserCheck } from "react-icons/fa";
 import { IoPersonRemove } from "react-icons/io5";
 import { FaTrashCan } from "react-icons/fa6";
+import { BiDetail } from "react-icons/bi";
 import Swal from "sweetalert2";
 
 const ApproveRiders = () => {
@@ -78,6 +79,9 @@ const ApproveRiders = () => {
                 <td>
                   <button onClick={() => handleApproval(rider)} className="btn">
                     <FaUserCheck />
+                  </button>
+                  <button onClick={() => handleDetail(rider)} className="btn">
+                    <BiDetail />
                   </button>
                   <button
                     onClick={() => handleRejection(rider)}

@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import useAuth from "./useAuth";
 import { useNavigate } from "react-router";
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "http://localhost:4000",
 });
 
 const useAxiosSecure = () => {
@@ -13,7 +13,7 @@ const useAxiosSecure = () => {
     //intercept request
     const reqInterceptor = axiosSecure.interceptors.request.use((config) => {
       config.headers.Authorization = `Bearer ${user.accessToken}`;
-      console.log("accessToken:", user?.accessToken);
+      // console.log("accessToken:", user?.accessToken);
 
       return config;
     });
