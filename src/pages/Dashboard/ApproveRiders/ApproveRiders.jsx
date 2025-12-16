@@ -80,7 +80,7 @@ const ApproveRiders = () => {
                   <button onClick={() => handleApproval(rider)} className="btn">
                     <FaUserCheck />
                   </button>
-                  <button onClick={() => handleDetail(rider)} className="btn">
+                  <button onClick={() => (rider)} className="btn">
                     <BiDetail />
                   </button>
                   <button

@@ -5,7 +5,6 @@ import Coverage from "../pages/Coverage/Coverage";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Auth/Login/Login";
 import Register from "../pages/Auth/Register/Register";
-import PrivateRoute from "./privateRoute";
 import Rider from "../pages/Rider/Rider";
 import SendParcel from "../pages/SendParcel/SendParcel";
 import DashboardLayout from "../layouts/DashboardLayout";
@@ -16,6 +15,8 @@ import PaymentCancelled from "../pages/Dashboard/Payment/PaymentCancelled";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import ApproveRiders from "../pages/Dashboard/ApproveRiders/ApproveRiders";
 import UsersManagement from "../pages/Dashboard/UsersManagement/UsersManagement";
+import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -94,13 +95,18 @@ export const router = createBrowserRouter([
         Component: PaymentCancelled,
       },
       {
-        path: 'approve-riders',
-        Component: ApproveRiders
+        path: "approve-riders",
+        element: <AdminRoute><ApproveRiders></ApproveRiders></AdminRoute>,
       },
       {
-        path: 'users-management',
+        path: "users-management",
         Component: UsersManagement
-      }
+        // element: (
+        //   <AdminRoute>
+        //     <UsersManagement></UsersManagement>
+        //   </AdminRoute>
+        // ),
+      },
     ],
   },
 ]);

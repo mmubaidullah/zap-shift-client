@@ -16,9 +16,9 @@ const UsersManagement = () => {
     },
   });
 
-  const hendleMakeUser = (user) => {
+  const hendleMakeAdmin = (user) => {
     const roleInfo = { role: "admin" };
-    axiosSecure.patch(`/users/${user._id}`, roleInfo).then((res) => {
+    axiosSecure.patch(`/users/${user._id}/role`, roleInfo).then((res) => {
       console.log(res.data);
       if (res.data.modifiedCount) {
         refetch();
@@ -46,7 +46,7 @@ const UsersManagement = () => {
       if (result.isConfirmed) {
         const roleInfo = { role: "user" };
 
-        axiosSecure.patch(`/users/${user._id}`, roleInfo).then((res) => {
+        axiosSecure.patch(`/users/${user._id}/role`, roleInfo).then((res) => {
           if (res.data.modifiedCount) {
             refetch();
             Swal.fire({
@@ -107,7 +107,7 @@ const UsersManagement = () => {
                     </button>
                   ) : (
                     <button
-                      onClick={() => hendleMakeUser(user)}
+                      onClick={() => hendleMakeAdmin(user)}
                       className="btn bg-green-400"
                     >
                       <FaUserShield />
